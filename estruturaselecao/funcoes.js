@@ -105,3 +105,112 @@ function exe05(){
     }
     document.getElementById("resultado").innerHTML= resultado
 }
+
+function exe06(){
+    let n1 = Number(document.getElementById("n1").value)
+    let n2 = Number(document.getElementById("n2").value)
+    let op = Number(document.getElementById("op").value)
+    let potencia
+    let raizq1
+    let raizq2
+    let raizc1
+    let raizc2
+
+    if (op == 1){
+        potencia = n1**n2
+        resultado = `A potência entre os dois números é ${potencia}`
+    }
+    else if (op==2){
+        raizq1 = Math.sqrt(n1)
+        raizq2 = Math.sqrt(n2)
+        resultado = `A raiz quadrada dos números são reespectivamente ${raizq1} e ${raizq2}`
+    }
+
+    else if (op==3){
+        raizc1 = Math.cbrt(n1)
+        raizc2 = Math.cbrt(n2)
+        resultado = `A raiz quadrada dos números são reespectivamente ${raizc1} e ${raizc2}`
+    }
+    document.getElementById("resultado").innerHTML = resultado 
+}
+
+function exe07(){
+    let salario = Number(document.getElementById("salario").value)
+    let aumento
+    let novosal
+
+    if (salario<500){
+        aumento = salario * (30/100)
+        novosal = salario + aumento
+        resultado = `O seu novo salário com o aumento será R$${novosal.toFixed(2)}`
+    }
+    else{
+        resultado = `Você não tem direito a aumento por ter salário maior que R$500,00`
+    }
+    document.getElementById("resultado").innerHTML= resultado
+}
+
+function exe08(){
+    let salario = Number(document.getElementById("salario").value)
+    let aumento
+    let novosal
+
+    if (salario<300){
+        aumento = salario * (35/100)
+        novosal = salario + aumento
+        resultado = `O seu novo salário com o aumento de 35% será R$${novosal.toFixed(2)}`
+    }
+    else if (salario>300){
+        aumento = salario * (15/100)
+        novosal = salario + aumento
+        resultado = `O seu novo salário com o aumento de 15% será R$${novosal.toFixed(2)}`
+    }
+    document.getElementById("resultado").innerHTML= resultado
+}
+function exe09(){
+    let saldo = Number(document.getElementById("saldo").value)
+    let credito
+
+    if (saldo>400){
+        credito = saldo * (30/100)
+        resultado = `O seu saldo médio é R$${saldo} e seu crédito é de R$${credito.toFixed(2)}`
+    }
+    else if ((saldo <= 400) && (saldo >300)){
+        credito = saldo * (25/100)
+        resultado = `O seu saldo médio é R$${saldo} e seu crédito é de R$${credito.toFixed(2)}`
+    }
+    else if ((saldo <= 300) && (saldo >200)){
+        credito = saldo * (20/100)
+        resultado = `O seu saldo médio é R$${saldo} e seu crédito é de R$${credito.toFixed(2)}`
+    }
+    else if (saldo<=200){
+        credito = saldo * (10/100)
+        resultado = `O seu saldo médio é R$${saldo} e seu crédito é de R$${credito.toFixed(2)}`
+    }
+    document.getElementById("resultado").innerHTML= resultado
+}
+function exe10(){
+    let preco_fabrica = Number(document.getElementById("preco_fabrica").value)
+    let distribuidor
+    let impostos
+    let preco_final
+
+    if (preco_fabrica<12000) {
+        distribuidor = preco_fabrica * (5/100)
+        preco_final = preco_fabrica + distribuidor
+        resultado = `O preço do carro será de R$${preco_final.toFixed(2)}`  
+    }
+    else if ((preco_fabrica>12000) && (preco_fabrica <25000)){
+        distribuidor = preco_fabrica * (10/100)
+        impostos = preco_fabrica * (15/100)
+        preco_final = preco_fabrica + impostos + distribuidor
+        resultado = `O preço do carro será de R$${preco_final.toFixed(2)}` 
+    }
+    else if (preco_fabrica > 25000){
+        distribuidor = preco_fabrica * (15/100)
+        impostos = preco_fabrica * (20/100)
+        preco_final = preco_fabrica + impostos + distribuidor
+        resultado = `O preço do carro será de R$${preco_final.toFixed(2)}` 
+    }
+    document.getElementById("resultado").innerHTML = resultado 
+}
