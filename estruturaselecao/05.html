@@ -15,22 +15,6 @@
         </header>
 
         <main> 
-            <ul>
-                <h3>Códigos e suas operações</h3>
-                <li>
-                    <a>1 - Média entre os números</a>
-                </li>
-                <li>
-                    <a>2 - Diferença do maior pelo menor</a>
-                </li>
-                <li>
-                    <a>3 - Produto dos números</a>
-                </li>
-                <li>
-                    <a>4 - Divisão do primeiro pelo segundo</a>
-                </li>
-            </ul>
-
             <div>
              <label for="n1">Digite o primeiro número</label>
              <input type="number" id="n1">
@@ -41,10 +25,15 @@
              <input type="number" id="n2">
             </div>
 
-            <div> 
-             <label for="op">Digite a operação desejada</label>
-             <input type="number" id="op">
+            <div>
+                <select id = "opcao">
+                    <option value="1">1. Média entre os números</option>
+                    <option value="2">2. Diferença entre os números</option>
+                    <option value="3">3. Produto entre os números</option>
+                    <option value="4">4. Divisão do primeiro pelo segundo</option>
+                </select>
             </div>
+
 
             <div> 
                 <button type="button" onclick="exe05()">Mostrar</button>
