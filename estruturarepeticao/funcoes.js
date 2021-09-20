@@ -184,3 +184,33 @@ function exe21(){
     alert(`Qtd votos candt 1: ${cont1}\nQtd votos candt 2: ${cont2}\nQtd votos candt 3: ${cont3}\nQtd votos candt 4: ${cont4}\nQtd votos nulos: ${cont5}\nQtd votos brancos: ${cont6}`)
     alert(`Porcentagem votos nulos ${(cont5/totalvotos*100).toFixed(2)}%\nPorcentagem votos brancos ${(cont6 / totalvotos * 100).toFixed(2)}%`)
 }
+function exe9(){
+    somaidade = 0
+    contpeso = 0
+    contaltura = 0
+
+    for (let i = 0; i <= 10; i++){
+        idade = Number(prompt("Digite sua idade"))
+        peso = Number(prompt("Digite seu peso"))
+        altura = Number(prompt("Digite sua altura"))
+
+        somaidade = idade + somaidade
+        
+        if ((peso > 90) && (altura < 1.50)){
+            contpeso++
+        }   
+        if ((idade >=10) && (idade <=30)){
+            if(altura > 1.90){
+                contaltura++
+            }
+        }
+
+    }
+
+    media = somaidade / 10
+    porc = (contaltura / (10*100))
+
+    alert(`Media idade ${somaidade}`)
+    alert(`Quantidade de pessoas com mais de 90kg e inferior a 1,50 = ${contpeso}`)
+    alert(`Porcentagem de pessoas entre 10 e 30 anos com mais de 1,90 = ${contaltura}`)
+}
