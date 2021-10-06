@@ -1,4 +1,4 @@
-function exe1(){
+function exe0(){
     let vet =[]
     let soma = 0
     for (i=0; i<10;i++){
@@ -11,36 +11,32 @@ function exe1(){
     alert(`A média é ${(soma/10).toFixed(2)}`)
 }
 
-function exe2(){
-    let vet = []
-    let par =[]
-    let impar = []
-    let contpar = 0
-    let contimpar = 0
-    for (i=0; i<6;i++){
-        vet[i] = Number(prompt(`Digite o ${i+1}° número`))
-
-        if (vet[i] % 2 == 0){
-            contpar = contpar+1 
-        }
-        else 
-            contimpar = contimpar+1
+function exe1(){
+    // declarar os vetores
+    let vetor = []
+    let impares = []
+    let pares = []
+    // entrada de dados
+    for(let i=0;i<6;i++){
+        vetor[i] = Number(prompt(`Informe o número ${i+1}`))
     }
-    //para nao precisarmos controlar o indice dos vetores destinos, usaremos push()
-    //push já sabe a primeira posição vazia do vetor
-    for(let i = 0; i<6;i++){
-        if (vet[i] % 2 == 0){
-            par.push(vet[i])
-            contpar = contpar+1 
+    // alimentar os vetores pares e impares
+    // para não precisarmos controle o índice dos vetores destinos, usamos push()
+    // push() já sabe a primeira posição vazia do vetor
+    for(let i=0;i<6;i++){
+        if (vetor[i] % 2 == 0) {
+            // elemento par
+            pares.push(vetor[i])            
         }
-        else 
-            impar.push(vet[i])
-            contimpar = contimpar+1
+        else {
+            // elemento ímpar
+            impares.push(vetor[i])       
+        }
     }
-    alert(`Quantidades de pares ${contpar}, quantidades de impares ${contimpar}`)
-    alert(`Números pares ${par}\n Números impares ${impar}`)
+    console.log(`Elementos pares ${pares} e qtde ${pares.length}`)
+    console.log(`Elementos ímpares ${impares} e qtde ${impares.length}`)
 }
-function exe3(){
+function exe2(){
     let vet = []
     let m2 = []
     let m3 = []
@@ -63,4 +59,113 @@ function exe3(){
     alert(`Múltiplos de 2: ${m2} `)
     alert(`Múltiplos de 3: ${m3} `)
     alert(`Múltiplos de 2 e 3: ${m2m3} `)
+}
+function exe3(){
+    let vetCodigos = []
+    let vetEstoque = []
+
+    for (i=0;i<10;i++){
+        vetCodigos[i] = Number(prompt(`Informe o código do produto ${i+1}`))
+        vetEstoque[i] = Number(prompt(`Informe o estoque do produto ${i+1}`))
+    }
+    let cliente = Number(prompt(`Informe o código do cliente`))
+    do{
+        let codigoCompra = Number(`Informe o código do produto para a compra`)
+        //verifica se achou
+        let achou = false //ela é false quando nao encontra o produto, e true qnd encontrou
+        
+        for(let i=0;i<10;i++){
+            if(codigoCompra == vetCodigos[i])
+            achou = true
+            //atualiza o estoque
+            let qtdeCompra = Number(prompt(`Informe a quantidade da compra`))
+            if (vetEstoque[i] - qtdeCompra >=0){//tem estoque suficiente
+                vetEstoque[i] = vetEstoque[i] - qtdeCompra
+            }
+            else{
+                alert(`Qtde em estoque é insuficiente`)
+            }
+        }
+        if(!achou){
+            alert(`Produto não comprado para venda`)
+        }
+        cliente = Number(prompt(`Informe o novo código do cliente. Digite 0 para encerrar`))
+    }
+    while(cliente!=0)
+    alert (`Estoque atualizado ${vetEstoque}`)
+}
+function exe4(){
+    let vetor = new Array(15) //vetor com tamanho estático - fixado
+    let vetorR = []
+
+    for (let i=0; i<15;i++){
+        vetor[i] = Number(prompt(`Informe o valor do elemento ${i+1}`))
+    }
+    //construi o vetor resultante
+    for (let i=0;i<15;i++){
+        if(vetor[i]==30){
+            vetorR.push(i)//adicionamos a posição
+        }
+    }
+    alert(`As posições de elementos igual a 30 é ${vetorR}`)
+}
+function exe5(){
+
+    let vetLogica = new Array(15)
+    let vetLp = new Array(10)
+    let interseccao = []
+
+    // entrada de dados
+    for(let i=0;i<15;i++){
+        vetLogica[i] = Number(prompt(`Informe código de matrícula do aluno que faz Lógica`))
+    }
+     // entrada de dados
+     for(let i=0;i<10;i++){
+        vetLp[i] = Number(prompt(`Informe código de matrícula do aluno que faz Linguagem de Programação`))
+    }
+
+    // intersecção
+    for(let i=0;i<15;i++){ // percorre o vetor de lógica
+        for(let j=0;j<10;j++){// percorre o vetor de linguagem de programação
+            if (vetLogica[i] == vetLp[j]){
+                interseccao.push(vetLogica[i])
+            }
+        } 
+    }
+    alert(`Alunos que fazem ambas as disciplinas ${interseccao}`)
+}
+
+function exe6() {
+    // declaração dos vetores
+    let vetNomes = new Array(5) // operador new aloca espaço na memória
+    let vetVendas = new Array(5) // operador new aloca espaço na memória
+    let vetComissao = new Array(5) // operador new aloca espaço na memória
+
+    for(let i=0;i<5;i++){
+        vetNomes[i] = prompt(`Informe o nome do vendedor ${i+1}`)
+        vetVendas[i] = Number(prompt(`Informe o total de vendas do vendedor ${i+1}`))
+        vetComissao[i] = Number(prompt(`Informe o % de comissão do vendedor ${i+1}`))
+    }
+    let totalVendas = 0
+    let maior = 0
+    let nomeMaior = ""
+    let menor = 100000
+    let nomeMenor = ""
+    for(let i=0;i<5;i++){
+        let receber = (vetVendas[i] * vetComissao[i]) / 100 // calcular o valor a receber do vendedor
+        if (receber > maior){
+            maior = receber // atualizar valor maior
+            nomeMaior = vetNomes[i]
+        }
+        if (receber < menor){
+            menor = receber // atualizar valor menor
+            nomeMenor = vetNomes[i]
+        }
+        alert(`O vendedor ${vetNomes[i]} vai receber ${receber}`) // mostra o relatório
+        totalVendas = totalVendas + vetVendas[i] // calcula o total de vendas
+    }
+
+    alert(`O total de vendas foi de ${totalVendas}`)
+    alert(`O maior valor a receber é ${maior} do vendedor ${nomeMaior}`)
+    alert(`O menor valor a receber é ${menor} do vendedor ${nomeMenor}`)
 }
