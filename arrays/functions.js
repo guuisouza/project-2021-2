@@ -169,3 +169,82 @@ function exe6() {
     alert(`O maior valor a receber é ${maior} do vendedor ${nomeMaior}`)
     alert(`O menor valor a receber é ${menor} do vendedor ${nomeMenor}`)
 }
+function exe7() {
+    let vet = new Array(10)
+    let contNeg = 0 //contagem dos números negativos
+    let somaPos = 0 //soma dos números positivos
+
+    for(let i = 1; i <= 10; i++) {
+        vet[i] = Number(prompt(`Digite o ${i}º número:`))
+    }
+    for(let i = 1; i <= 10; i++) {
+        if (vet[i] >= 0) {
+            somaPos += vet[i]
+        }
+        if(vet[i] < 0) {
+            contNeg++
+        }
+    }
+    alert(`A quantidade de números negativos é ${contNeg} e a soma dos números positivos é ${somaPos}`)
+}
+
+function exe8() {
+    let vetNomes = new Array(7)
+    let vetMedia = new Array(7)
+    let nomeMenor = []
+    let notaMenor = []
+    let nomeMaiorMedia 
+    let notaExame = 0
+    let maiorMedia = 0
+
+    for(let i = 1; i <= 7; i++) {
+        vetNomes[i] = prompt(`Digite o nome do ${i}º aluno:`)
+        vetMedia[i] = Number(prompt(`Digite a média do ${i}º aluno:`))
+    }
+    for(let i = 1; i <= 7; i++) {
+        if (vetMedia[i] > maiorMedia) {
+        maiorMedia = Math.max(vetMedia[i])
+        nomeMaiorMedia = vetNomes[i]
+    }
+}
+    alert(`O(a) aluno(a) ${nomeMaiorMedia} obteve a maior média final com ${maiorMedia}!!`)
+
+    for(let i = 1; i <= 7; i++) {
+        if (vetMedia[i] < 7) {
+            notaMenor.push(vetMedia[i])
+            nomeMenor.push(vetNomes[i])
+            notaExame == (10 - notaMenor[i])
+        }
+        alert(`O(a) aluno(a) ${nomeMenor} precisa tirar ${notaExame} no exame! `)
+    }  
+}
+
+function exe9() {
+    let vetProdutos = new Array(4)
+    let vetCodigos = new Array(4)
+    let vetPrecos = new Array(4)
+    let novoPreco = []
+
+    for(let i = 1; i <= 4; i++) {
+        vetProdutos[i] = prompt(`Digite o nome do produto:`)
+        vetCodigos[i] = Number(prompt(`Digite o código do produto:`))
+        vetPrecos[i] = Number(prompt(`Digite o preço do produto:`))
+    }
+    for(let i = 1; i <= 4; i++) {
+        if (vetPrecos[i] > 1000) {
+            novoPreco[i] == (vetPrecos[i] * (10 / 100))
+        }
+        if (vetCodigos[i] % 2 === 0) {
+            novoPreco[i] == (vetPrecos[i] * (15 / 100))
+        }
+        if ((vetCodigos[i] % 2 === 0) && (vetPrecos[i] > 1000)) {
+            novoPreco[i] == (vetPrecos[i] * (20 / 100))
+        }
+        alert(`O produto ${vetProdutos} que custava R$${vetPrecos}, sofreu aumento e foi para R$${novoPreco}.`)
+    }
+    for(let i = 1; i <= 4; i++) {
+        if ((vetPrecos[i] < 1000) && (vetCodigos[i] % 2 !== 0)) {
+            alert(`O produto ${vetProdutos} não sofreu alteração no preço!!!`)
+        }
+    }
+}
