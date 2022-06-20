@@ -1,0 +1,20 @@
+body {
+    width: 60%; /* largura */
+    margin: auto; /* centralizado */
+    background-color: teal;
+    margin-top: 100px; /* espaçamento externo acima */
+}
+
+div{
+    padding: 10px;
+}
+
+li {
+    padding: 5px;
+}
+
+main {
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px;
+}
